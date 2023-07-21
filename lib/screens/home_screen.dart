@@ -12,6 +12,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.pushNamed(context, 'new_todo_screen');
+        },
+        backgroundColor: const Color(0xFF3DA9FC),
+        child: const Icon(Icons.add, color: Colors.white),
+      ),
       backgroundColor: const Color(0xFF3DA9FC),
       body: Padding(
         padding: const EdgeInsets.only(top: 30),
@@ -46,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.only(topRight: Radius.circular(50), bottomRight: Radius.circular(50)),
                     color: Colors.white,
                   ),
-                  child: TextButton(onPressed: (){Navigator.pushNamed(context, 'new_todo_screen');}, child: const Text('Search', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Color(0xFF3DA9FC)))),
+                  child: TextButton(onPressed: (){}, child: const Text('Search', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Color(0xFF3DA9FC)))),
                 ),
               ],
             ),
