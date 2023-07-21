@@ -15,6 +15,7 @@ class _NewTodeScreenState extends State<NewTodeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color(0xFF3DA9FC),
       body: Column(
         children: [

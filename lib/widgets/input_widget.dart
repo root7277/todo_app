@@ -11,6 +11,7 @@ class InputWidget extends StatefulWidget {
 }
 
 class _InputWidgetState extends State<InputWidget> {
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,6 +29,7 @@ class _InputWidgetState extends State<InputWidget> {
           color: Colors.white
         ),
         child: TextField(
+          controller: controller,
           decoration: InputDecoration(
             hintText: widget.hintText,
             hintStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.black),
