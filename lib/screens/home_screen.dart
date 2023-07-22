@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/modul/list.dart';
 import 'package:todo_app/widgets/home_scrool.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -65,9 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.white,
                 ),
                 child: ListView.builder(
-                  itemCount: 2,
+                  itemCount: listTitle.length,
                   itemBuilder: (context, index){
-                    return const HomeScroolWidget(image: 'assets/image.png', title: 'Shopping', subtitle: 'Milk, Eggs, Juice, ...');
+                    return HomeScroolWidget(image: 'assets/image.png', title: listTitle[index], subtitle: listSubtitle[index]);
                   }
                 ),
               ),

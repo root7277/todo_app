@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:todo_app/widgets/input_name_widget.dart';
 import 'package:todo_app/widgets/name_widget.dart';
 
-import '../widgets/input_details_widget.dart';
 
 class EditTodoScreen extends StatefulWidget {
   const EditTodoScreen({super.key});
@@ -13,6 +11,8 @@ class EditTodoScreen extends StatefulWidget {
 }
 
 class _EditTodoScreenState extends State<EditTodoScreen> {
+  TextEditingController controllerName = TextEditingController();
+  TextEditingController controllerDetails = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +47,33 @@ class _EditTodoScreenState extends State<EditTodoScreen> {
                   const SizedBox(height: 70),
                   const NameWidget(text: 'Name'),
                   const SizedBox(height: 15),
-                  const InputNameWidget(hintText: 'Enter the name'),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 13, right: 13),
+                      child: TextField(
+                        maxLines: 1,
+                        controller: controllerName,
+                        decoration: const InputDecoration(
+                            hintText: 'Enter the name',
+                            hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.black),
+                            border: OutlineInputBorder(),
+                        ),
+                      ),
+                  ),
                   const SizedBox(height: 50),
                   const NameWidget(text: 'Details'),
                   const SizedBox(height: 15),
-                  const InputDetailsWidget(hintTextDetails: 'Enter the details'),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 13, right: 13),
+                      child: TextField(
+                        maxLines: 10,
+                        controller: controllerDetails,
+                        decoration: const InputDecoration(
+                            hintText: 'Enter the details',
+                            hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.black),
+                            border: OutlineInputBorder(),
+                        ),
+                      ),
+                  ),
                   const SizedBox(height: 50),
                   Padding(
                     padding: const EdgeInsets.only(left: 13, right: 13),

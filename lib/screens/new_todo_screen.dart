@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:todo_app/widgets/elevated_bottom.dart';
-import 'package:todo_app/widgets/input_name_widget.dart';
 import 'package:todo_app/widgets/name_widget.dart';
 
-import '../widgets/input_details_widget.dart';
+import '../modul/list.dart';
+
 
 class NewTodeScreen extends StatefulWidget {
   const NewTodeScreen({super.key});
@@ -14,6 +13,8 @@ class NewTodeScreen extends StatefulWidget {
 }
 
 class _NewTodeScreenState extends State<NewTodeScreen> {
+  TextEditingController controllerName = TextEditingController();
+  TextEditingController controllerDetails = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,22 +43,56 @@ class _NewTodeScreenState extends State<NewTodeScreen> {
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
                 color: Colors.white,
               ),
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 70),
-                  NameWidget(text: 'Name'),
-                  SizedBox(height: 15),
-                  InputNameWidget(hintText: 'Enter the name'),
-                  SizedBox(height: 50),
-                  NameWidget(text: 'Details'),
-                  SizedBox(height: 15),
-                  InputDetailsWidget(hintTextDetails: 'Enter the details'),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 70),
+                  const NameWidget(text: 'Name'),
+                  const SizedBox(height: 15),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 13, right: 13),
+                      child: TextField(
+                        maxLines: 1,
+                        controller: controllerName,
+                        decoration: const InputDecoration(
+                            hintText: 'Enter the name',
+                            hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.black),
+                            border: OutlineInputBorder(),
+                        ),
+                      ),
+                  ),
+                  const SizedBox(height: 50),
+                  const NameWidget(text: 'Details'),
+                  const SizedBox(height: 15),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 13, right: 13),
+                      child: TextField(
+                        maxLines: 10,
+                        controller: controllerDetails,
+                        decoration: const InputDecoration(
+                            hintText: 'Enter the details',
+                            hintStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w400, color: Colors.black),
+                            border: OutlineInputBorder(),
+                        ),
+                      ),
+                  ),
+                  const SizedBox(height: 50),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedBottomSave(),
+                      ElevatedButton(
+                        onPressed: (){
+                          listTitle.add(controllerName.text);
+                          listSubtitle.add(controllerDetails.text);
+                          Navigator.pushNamed(context, 'home_screen');
+                        }, 
+                        style: const ButtonStyle(
+                          backgroundColor: MaterialStatePropertyAll(Color(0xFF3DA9FC)),
+                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(5)))),
+                          minimumSize: MaterialStatePropertyAll(Size(328, 60)),
+                        ),
+                        child: const Text('Save', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700, color: Colors.white))
+                      ),
                     ],
                   ),
                 ],
