@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:todo_app/widgets/input_widget.dart';
+import 'package:todo_app/widgets/input_name_widget.dart';
 import 'package:todo_app/widgets/name_widget.dart';
+
+import '../widgets/input_details_widget.dart';
 
 class EditTodoScreen extends StatefulWidget {
   const EditTodoScreen({super.key});
@@ -45,11 +47,11 @@ class _EditTodoScreenState extends State<EditTodoScreen> {
                   const SizedBox(height: 70),
                   const NameWidget(text: 'Name'),
                   const SizedBox(height: 15),
-                  const InputWidget(width: 328, heigth: 40, hintText: 'Enter the name'),
+                  const InputNameWidget(hintText: 'Enter the name'),
                   const SizedBox(height: 50),
                   const NameWidget(text: 'Details'),
                   const SizedBox(height: 15),
-                  const InputWidget(width: 328, heigth: 230, hintText: 'Enter the details'),
+                  const InputDetailsWidget(hintTextDetails: 'Enter the details'),
                   const SizedBox(height: 50),
                   Padding(
                     padding: const EdgeInsets.only(left: 13, right: 13),

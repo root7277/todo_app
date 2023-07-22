@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:todo_app/widgets/elevated_bottom.dart';
-import 'package:todo_app/widgets/input_widget.dart';
+import 'package:todo_app/widgets/input_name_widget.dart';
 import 'package:todo_app/widgets/name_widget.dart';
+
+import '../widgets/input_details_widget.dart';
 
 class NewTodeScreen extends StatefulWidget {
   const NewTodeScreen({super.key});
@@ -46,11 +48,11 @@ class _NewTodeScreenState extends State<NewTodeScreen> {
                   SizedBox(height: 70),
                   NameWidget(text: 'Name'),
                   SizedBox(height: 15),
-                  InputWidget(width: 328, heigth: 40, hintText: 'Enter the name'),
+                  InputNameWidget(hintText: 'Enter the name'),
                   SizedBox(height: 50),
                   NameWidget(text: 'Details'),
                   SizedBox(height: 15),
-                  InputWidget(width: 328, heigth: 230, hintText: 'Enter the details'),
+                  InputDetailsWidget(hintTextDetails: 'Enter the details'),
                   SizedBox(height: 50),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
